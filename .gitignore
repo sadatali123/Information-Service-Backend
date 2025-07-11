@@ -31,5 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
-application.properties
-src/main/resources/application.properties
+
+# Ignore application.properties anywhere in the project
+**/application.properties
