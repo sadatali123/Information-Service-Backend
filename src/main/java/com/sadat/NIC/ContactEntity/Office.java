@@ -4,18 +4,25 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "contact-post-details")
+@Table(name = "contact-office-details")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class Office {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String postName;
-    private String rank;
+    private String officeName;
+    private String level;
+    private String postOffice;
+    private String policeStation;
+    private String block;
+    private String subdivision;
+    private String district;
+
+
 
     @ManyToOne
     @JoinColumn(name = "dept_id")

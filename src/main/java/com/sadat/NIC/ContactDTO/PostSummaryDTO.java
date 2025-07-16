@@ -8,7 +8,6 @@ import lombok.*;
 public class PostSummaryDTO {
     private Long id;
     private String postName;
-    private String level;
-    private String officeName;
-    private String officeAddress;
+    private String rank;
+  
 }

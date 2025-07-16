@@ -23,9 +23,7 @@ public class PostServiceImpl implements PostService {
     public Post update(Long id, Post updatedPost) {
         Post existing = postRepository.findById(id).orElseThrow();
         existing.setPostName(updatedPost.getPostName());
-        existing.setLevel(updatedPost.getLevel());
-        existing.setOfficeName(updatedPost.getOfficeName());
-        existing.setOfficeAddress(updatedPost.getOfficeAddress());
+        existing.setRank(updatedPost.getRank());
         existing.setDepartment(updatedPost.getDepartment());
         return postRepository.save(existing);
     }

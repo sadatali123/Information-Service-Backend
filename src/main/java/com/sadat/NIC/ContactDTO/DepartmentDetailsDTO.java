@@ -13,4 +13,5 @@ public class DepartmentDetailsDTO {
     private boolean pending;
     private List<PostSummaryDTO> posts;
     private List<EmployeeSummaryDTO> employees;
+    private List<OfficeSummaryDTO> offices;
 }

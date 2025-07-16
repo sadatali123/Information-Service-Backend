@@ -1,11 +1,12 @@
 package com.sadat.NIC.ContactService.Impl;
-
 import com.sadat.NIC.ContactEntity.Department;
+
 import com.sadat.NIC.ContactService.DepartmentService;
 import com.sadat.NIC.ContactRepository.DepartmentRepository;
 import com.sadat.NIC.ContactDTO.DepartmentDetailsDTO;
 import com.sadat.NIC.ContactDTO.PostSummaryDTO;
 import com.sadat.NIC.ContactDTO.EmployeeSummaryDTO;
+import com.sadat.NIC.ContactDTO.OfficeSummaryDTO;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,9 +60,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         List<PostSummaryDTO> postDTOs = dept.getPosts().stream().map(post -> new PostSummaryDTO(
             post.getId(),
             post.getPostName(),
-            post.getLevel(),
-            post.getOfficeName(),
-            post.getOfficeAddress()
+            post.getRank()
         )).collect(Collectors.toList());
 
         List<EmployeeSummaryDTO> employeeDTOs = dept.getEmployees().stream().map(emp -> new EmployeeSummaryDTO(
@@ -72,6 +71,19 @@ public class DepartmentServiceImpl implements DepartmentService {
             emp.getEmail(),
             emp.isActive()
         )).collect(Collectors.toList());
+        
+           
+        List<OfficeSummaryDTO> officeDTOs = dept.getOffices().stream().map(office -> new OfficeSummaryDTO(
+            office.getId(),
+            office.getOfficeName(),
+            office.getLevel(),
+            office.getPostOffice(),
+            office.getPoliceStation(),
+            office.getBlock(),
+            office.getSubdivision(),
+            office.getDistrict()
+        )).collect(Collectors.toList());
+
 
         return new DepartmentDetailsDTO(
             dept.getId(),
@@ -79,7 +91,8 @@ public class DepartmentServiceImpl implements DepartmentService {
             dept.getType(),
             dept.isPending(),
             postDTOs,
-            employeeDTOs
+            employeeDTOs,
+            officeDTOs
         );
     }
 
