@@ -1,6 +1,5 @@
 package com.sadat.NIC.Service.Impl;
 
-
 import com.sadat.NIC.Entity.ContactOffice;
 import com.sadat.NIC.Repository.ContactOfficeRepository;
 import com.sadat.NIC.Service.ContactOfficeService;
@@ -26,6 +25,8 @@ public class ContactOfficeServiceImpl implements ContactOfficeService {
         ContactOffice existing = OfficeRepository.findById(id).orElseThrow();
         existing.setOfficeName(updatedOffice.getOfficeName());
         existing.setLevel(updatedOffice.getLevel());
+        existing.setPincode(updatedOffice.getPincode());
+        existing.setBlock(updatedOffice.getBlock());
         existing.setPostOffice(updatedOffice.getPostOffice());
         existing.setPoliceStation(updatedOffice.getPoliceStation());
         existing.setDepartment(updatedOffice.getDepartment());

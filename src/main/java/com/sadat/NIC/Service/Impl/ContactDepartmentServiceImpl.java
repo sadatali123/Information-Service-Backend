@@ -33,6 +33,7 @@ public class ContactDepartmentServiceImpl implements ContactDepartmentService {
         ContactDepartment existing = getById(id);
         existing.setDeptName(updatedDept.getDeptName());
         existing.setType(updatedDept.getType());
+        existing.setSummary(updatedDept.getSummary());
         return departmentRepository.save(existing);
     }
 
@@ -77,6 +78,7 @@ public class ContactDepartmentServiceImpl implements ContactDepartmentService {
             office.getId(),
             office.getOfficeName(),
             office.getLevel(),
+            office.getPincode(),
             office.getPostOffice(),
             office.getPoliceStation(),
             office.getBlock(),
@@ -89,6 +91,7 @@ public class ContactDepartmentServiceImpl implements ContactDepartmentService {
             dept.getId(),
             dept.getDeptName(),
             dept.getType(),
+            dept.getSummary(),
             dept.isPending(),
             postDTOs,
             employeeDTOs,

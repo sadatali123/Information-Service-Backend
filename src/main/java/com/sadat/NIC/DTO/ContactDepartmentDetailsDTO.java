@@ -10,6 +10,7 @@ public class ContactDepartmentDetailsDTO {
     private Long id;
     private String deptName;
     private String type;
+    private String summary;
     private boolean pending;
     private List<ContactPostSummaryDTO> posts;
     private List<ContactEmployeeSummaryDTO> employees;

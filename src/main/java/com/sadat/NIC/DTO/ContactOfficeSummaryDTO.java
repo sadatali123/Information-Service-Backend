@@ -9,6 +9,7 @@ public class ContactOfficeSummaryDTO {
     private Long id;
     private String officeName;
     private String level;
+    private String pincode;
     private String postOffice;
     private String policeStation;
     private String block;

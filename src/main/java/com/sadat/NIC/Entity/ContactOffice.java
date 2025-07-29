@@ -16,6 +16,7 @@ public class ContactOffice {
 
     private String officeName;
     private String level;
+    private String pincode;
     private String postOffice;
     private String policeStation;
     private String block;

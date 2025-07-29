@@ -17,6 +17,7 @@ public class ContactDepartment {
 
     private String deptName;
     private String type;
+    private String summary;
     private boolean isPending;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
