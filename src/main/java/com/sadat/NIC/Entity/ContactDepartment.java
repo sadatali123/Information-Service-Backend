@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class C_Department {
+public class ContactDepartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class C_Department {
     private boolean isPending;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
-    private List<Post> posts;
+    private List<ContactPost> posts;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private List<ContactEmployee> employees;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
-    private List<Office> offices; 
+    private List<ContactOffice> offices; 
 }

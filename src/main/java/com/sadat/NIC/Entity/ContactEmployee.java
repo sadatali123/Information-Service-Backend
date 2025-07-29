@@ -22,10 +22,10 @@ public class ContactEmployee {
 
     @ManyToOne
     @JoinColumn(name = "dept_id")
-    private C_Department department;
+    private ContactDepartment department;
 
     @ManyToOne
     @JoinColumn(name = "post_id")
-    private Post post;
+    private ContactPost post;
 }
 

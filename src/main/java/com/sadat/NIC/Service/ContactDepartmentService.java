@@ -1,17 +1,17 @@
 package com.sadat.NIC.Service;
 
-import com.sadat.NIC.DTO.C_DepartmentDetailsDTO;
-import com.sadat.NIC.Entity.C_Department;
+import com.sadat.NIC.DTO.ContactDepartmentDetailsDTO;
+import com.sadat.NIC.Entity.ContactDepartment;
 
 import java.util.List;
 
 public interface ContactDepartmentService {
-    C_Department add(C_Department dept);
-    C_Department update(Long id, C_Department updatedDept);
-    List<C_Department> getAll();
-    C_Department getById(Long id);
-    C_Department togglePending(Long id);
-    C_DepartmentDetailsDTO getDepartmentDetails(Long id);
+    ContactDepartment add(ContactDepartment dept);
+    ContactDepartment update(Long id, ContactDepartment updatedDept);
+    List<ContactDepartment> getAll();
+    ContactDepartment getById(Long id);
+    ContactDepartment togglePending(Long id);
+    ContactDepartmentDetailsDTO getDepartmentDetails(Long id);
     
     
 }

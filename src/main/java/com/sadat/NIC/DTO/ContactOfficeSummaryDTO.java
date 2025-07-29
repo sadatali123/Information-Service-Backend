@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OfficeSummaryDTO {
+public class ContactOfficeSummaryDTO {
     private Long id;
     private String officeName;
     private String level;

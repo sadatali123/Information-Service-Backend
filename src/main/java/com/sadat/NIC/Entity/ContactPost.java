@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class ContactPost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,6 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "dept_id")
-    private C_Department department;
+    private ContactDepartment department;
 }
 

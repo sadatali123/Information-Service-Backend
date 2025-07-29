@@ -1,7 +1,7 @@
 package com.sadat.NIC.Controller;
 
-import com.sadat.NIC.DTO.C_DepartmentDetailsDTO;
-import com.sadat.NIC.Entity.C_Department;
+import com.sadat.NIC.DTO.ContactDepartmentDetailsDTO;
+import com.sadat.NIC.Entity.ContactDepartment;
 import com.sadat.NIC.Service.ContactDepartmentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,9 @@ public class ContactDepartmentController {
     private ContactDepartmentService departmentService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody C_Department dept) {
+    public ResponseEntity<?> add(@RequestBody ContactDepartment dept) {
     try {
-        C_Department created = departmentService.add(dept);
+        ContactDepartment created = departmentService.add(dept);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     } catch (RuntimeException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT); // 409
@@ -28,22 +28,22 @@ public class ContactDepartmentController {
 }
 
     @PutMapping("/update/{id}")
-    public C_Department updateDepartment(@PathVariable Long id, @RequestBody C_Department updatedDept) {
+    public ContactDepartment updateDepartment(@PathVariable Long id, @RequestBody ContactDepartment updatedDept) {
         return departmentService.update(id, updatedDept);
     }
 
     @GetMapping("/getall")
-    public ResponseEntity<List<C_Department>> getAll() {
+    public ResponseEntity<List<ContactDepartment>> getAll() {
         return ResponseEntity.ok(departmentService.getAll());
     }
 
     @GetMapping("/getbyid/{id}")
-    public ResponseEntity<C_Department> getById(@PathVariable Long id) {
+    public ResponseEntity<ContactDepartment> getById(@PathVariable Long id) {
         return ResponseEntity.ok(departmentService.getById(id));
     }
 
     @GetMapping("/departmentSummarry/{id}")
-    public ResponseEntity<C_DepartmentDetailsDTO> getDepartmentDetails(@PathVariable Long id) {
+    public ResponseEntity<ContactDepartmentDetailsDTO> getDepartmentDetails(@PathVariable Long id) {
     return ResponseEntity.ok(departmentService.getDepartmentDetails(id));
     }
 }

@@ -1,8 +1,8 @@
 package com.sadat.NIC.Service.Impl;
 
 import com.sadat.NIC.Entity.ContactEmployee;
-import com.sadat.NIC.Repository.EmployeeRepository;
-import com.sadat.NIC.Service.EmployeeService;
+import com.sadat.NIC.Repository.ContactEmployeeRepository;
+import com.sadat.NIC.Service.ContactEmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public class ContactEmployeeServiceImpl implements ContactEmployeeService {
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private ContactEmployeeRepository employeeRepository;
 
     @Override
     public ContactEmployee add(ContactEmployee employee) {

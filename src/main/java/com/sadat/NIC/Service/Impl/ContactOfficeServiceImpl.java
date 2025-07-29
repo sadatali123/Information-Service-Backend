@@ -1,9 +1,9 @@
 package com.sadat.NIC.Service.Impl;
 
 
-import com.sadat.NIC.Entity.Office;
-import com.sadat.NIC.Repository.OfficeRepository;
-import com.sadat.NIC.Service.OfficeService;
+import com.sadat.NIC.Entity.ContactOffice;
+import com.sadat.NIC.Repository.ContactOfficeRepository;
+import com.sadat.NIC.Service.ContactOfficeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,19 +11,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OfficeServiceImpl implements OfficeService {
+public class ContactOfficeServiceImpl implements ContactOfficeService {
 
     @Autowired
-    private OfficeRepository OfficeRepository;
+    private ContactOfficeRepository OfficeRepository;
 
     @Override
-    public Office add(Office office) {
+    public ContactOffice add(ContactOffice office) {
         return OfficeRepository.save(office);
     }
 
     @Override
-    public Office update(Long id, Office updatedOffice) {
-        Office existing = OfficeRepository.findById(id).orElseThrow();
+    public ContactOffice update(Long id, ContactOffice updatedOffice) {
+        ContactOffice existing = OfficeRepository.findById(id).orElseThrow();
         existing.setOfficeName(updatedOffice.getOfficeName());
         existing.setLevel(updatedOffice.getLevel());
         existing.setPostOffice(updatedOffice.getPostOffice());
@@ -33,12 +33,12 @@ public class OfficeServiceImpl implements OfficeService {
     }
 
     @Override
-    public List<Office> getAll() {
+    public List<ContactOffice> getAll() {
         return OfficeRepository.findAll();
     }
 
     @Override
-    public Office getById(Long id) {
+    public ContactOffice getById(Long id) {
         return OfficeRepository.findById(id).orElseThrow();
     }
 }

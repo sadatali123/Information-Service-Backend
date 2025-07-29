@@ -5,7 +5,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostSummaryDTO {
+public class ContactPostSummaryDTO {
     private Long id;
     private String postName;
     private String rank;

@@ -1,8 +1,8 @@
 package com.sadat.NIC.Service.Impl;
 
-import com.sadat.NIC.Entity.Post;
-import com.sadat.NIC.Repository.PostRepository;
-import com.sadat.NIC.Service.PostService;
+import com.sadat.NIC.Entity.ContactPost;
+import com.sadat.NIC.Repository.ContactPostRepository;
+import com.sadat.NIC.Service.ContactPostService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PostServiceImpl implements PostService {
+public class ContactPostServiceImpl implements ContactPostService {
 
     @Autowired
-    private PostRepository postRepository;
+    private ContactPostRepository postRepository;
 
     @Override
-    public Post add(Post post) {
+    public ContactPost add(ContactPost post) {
         return postRepository.save(post);
     }
 
     @Override
-    public Post update(Long id, Post updatedPost) {
-        Post existing = postRepository.findById(id).orElseThrow();
+    public ContactPost update(Long id, ContactPost updatedPost) {
+        ContactPost existing = postRepository.findById(id).orElseThrow();
         existing.setPostName(updatedPost.getPostName());
         existing.setRank(updatedPost.getRank());
         existing.setDepartment(updatedPost.getDepartment());
@@ -30,12 +30,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAll() {
+    public List<ContactPost> getAll() {
         return postRepository.findAll();
     }
 
     @Override
-    public Post getById(Long id) {
+    public ContactPost getById(Long id) {
         return postRepository.findById(id).orElseThrow();
     }
 }

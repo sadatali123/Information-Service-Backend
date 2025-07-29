@@ -1,7 +1,7 @@
 package com.sadat.NIC.Controller;
 
 import com.sadat.NIC.Entity.ContactEmployee;
-import com.sadat.NIC.Service.EmployeeService;
+import com.sadat.NIC.Service.ContactEmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class ContactEmployeeController {
 
     @Autowired
-    private EmployeeService employeeService;
+    private ContactEmployeeService employeeService;
 
     @PostMapping("/add")
     public ResponseEntity<ContactEmployee> add(@RequestBody ContactEmployee employee) {

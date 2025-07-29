@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Office {
+public class ContactOffice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,6 @@ public class Office {
 
     @ManyToOne
     @JoinColumn(name = "dept_id")
-    private C_Department department;
+    private ContactDepartment department;
 }
 
