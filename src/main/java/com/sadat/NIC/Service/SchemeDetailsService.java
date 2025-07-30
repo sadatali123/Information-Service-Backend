@@ -20,4 +20,6 @@ public interface SchemeDetailsService {
     SchemeDetails changeActiveStatus(Long id);
 
     Boolean isSchemeExist(String schemeName);
+
+    void deleteSchemeById(Long id);
 }

@@ -1,5 +1,6 @@
 package com.sadat.NIC.Service.Impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,38 @@ public class SchemeDetailsServiceimpl implements SchemeDetailsService{
    public String demoService() {
        return "Hello Seheme Details Service";
    } 
-   @Override
-   public ResponseEntity<?> createNewScheme(SchemeDetails newSchemeDetails) {
-       if (isSchemeExist(newSchemeDetails.getSchemeName())) {
-           return ResponseEntity.badRequest()
-                   .body("Scheme with name " + newSchemeDetails.getSchemeName() + " already exists.");
-       }
-        // newSchemeDetails.setLaunchDate((LocalDate.parse((newSchemeDetails.getLaunchDate().toString()))));
-        newSchemeDetails.setIsActive(false);
-        newSchemeDetails.setIsPublished(false);
-        
-        return ResponseEntity.ok(schemeDetailsRepository.save(newSchemeDetails));
-   }
+
+@Override
+public ResponseEntity<?> createNewScheme(SchemeDetails newSchemeDetails) {
+    if (isSchemeExist(newSchemeDetails.getSchemeName())) {
+        return ResponseEntity.badRequest()
+            .body("Scheme with name " + newSchemeDetails.getSchemeName() + " already exists.");
+    }
+
+    SchemeDetails newScheme = new SchemeDetails();
+    newScheme.setSchemeName(newSchemeDetails.getSchemeName());
+    newScheme.setSummary(newSchemeDetails.getSummary());
+    newScheme.setType(newSchemeDetails.getType());
+    newScheme.setTargetAudience(newSchemeDetails.getTargetAudience());
+    newScheme.setMode(newSchemeDetails.getMode());
+    newScheme.setApplicationUrl(newSchemeDetails.getApplicationUrl());
+    newScheme.setOfficeAddress(newSchemeDetails.getOfficeAddress());
+
+    // Set default fields
+    newScheme.setAbbr("");
+    newScheme.setLaunchDate(LocalDate.now().toString());
+    newScheme.setIsActive(false);
+    newScheme.setIsPublished(false);
+
+    return ResponseEntity.ok(schemeDetailsRepository.save(newScheme));
+}
+
+
+
+
+
+
+
 
 
     @Override
@@ -106,5 +127,10 @@ public class SchemeDetailsServiceimpl implements SchemeDetailsService{
     public Boolean isSchemeExist(String schemeName){
         return (readSchemeDetailsBySchemeName(schemeName) == null) ? false : true;
     }
+
+    @Override
+    public void deleteSchemeById(Long id) {
+    schemeDetailsRepository.deleteById(id);
+}
    
 }

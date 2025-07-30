@@ -16,12 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sadat.NIC.Entity.SchemeBenefits;
 import com.sadat.NIC.Service.SchemeBenefitsService;
 
-
-
-
 @RestController
 @RequestMapping("/api/scheme-benefits")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:8080")
 public class SchemeBenefitsController {
     @Autowired
     private SchemeBenefitsService schemeBenefitsService;
@@ -32,25 +29,25 @@ public class SchemeBenefitsController {
         return schemeBenefitsService.createNewSchemeBenefits(schemeBenefits);
     }
 
-    @GetMapping("/get-all-scheme-benefits")
+    @GetMapping("/get-all-scheme")
     public List<SchemeBenefits> getAllSchemeBenefits(){
          List<SchemeBenefits> s = schemeBenefitsService.readAllSchemeBenefits();
         return s;
     }
 
-    @GetMapping("/get-all-scheme-benefits/{Id}")
+    @GetMapping("/get-all-scheme/{Id}")
     public SchemeBenefits getSchemeBenefitsById(@PathVariable Long Id){
         SchemeBenefits c = schemeBenefitsService.readAllSchemeBenefitsById(Id);
         return c;
     }
 
-    @GetMapping("/get-scheme-benefits/{schemeId}")
+    @GetMapping("/get-scheme/{schemeId}")
     public List<SchemeBenefits> getSchemeBenefitsBySchemeName(@PathVariable Long schemeId){
          List<SchemeBenefits> s = schemeBenefitsService.readSchemeBenefitsBySchemeId(schemeId);
         return s;
     }
 
-     @PutMapping("/update-scheme-benefits/{id}")
+     @PutMapping("/update-scheme/{id}")
     public ResponseEntity<SchemeBenefits> updateSchemeBenefitsById(@PathVariable Long id, @RequestBody SchemeBenefits schemeBenefits){
         return ResponseEntity.ok(schemeBenefitsService.updateSchemeBenefitsById(id, schemeBenefits));
     }

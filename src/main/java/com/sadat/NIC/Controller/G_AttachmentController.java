@@ -17,11 +17,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/attachments")
-public class AttachmentController {
+public class G_AttachmentController {
 
     private final AttachmentService attachmentService;
 
-    public AttachmentController(AttachmentService attachmentService) {
+    public G_AttachmentController(AttachmentService attachmentService) {
         this.attachmentService = attachmentService;
     }
 

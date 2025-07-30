@@ -2,13 +2,9 @@ package com.sadat.NIC.Entity;
 
 import com.sadat.NIC.enums.SchemeMode;
 import com.sadat.NIC.enums.SchemeType;
-
 // import java.time.LocalDate;
-
-
 // import com.infoservice.schemeService.schemeEntities.enums.SchemeMode;
 // import com.infoservice.schemeService.schemeEntities.enums.SchemeType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
